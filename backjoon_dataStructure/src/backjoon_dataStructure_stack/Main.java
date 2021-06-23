@@ -10,7 +10,6 @@ public class Main {
 		Node[] nodes = new Node[10001];
 		BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
 		String command = "";
-        String temp = "";
 
 		int count = 0;
 		int stackSize = 0;
