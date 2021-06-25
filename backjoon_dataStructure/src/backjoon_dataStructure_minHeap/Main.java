@@ -57,9 +57,7 @@ public class Main {
 					heaps[size] = choice;
 					size++;
 				}
-				
 			}
-			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
