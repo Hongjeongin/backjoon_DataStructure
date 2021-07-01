@@ -13,6 +13,9 @@ public class Main {
 		//힙
 		Heap h = new Heap();
 		
+		//빈 공간
+		int temp = 0;
+		
 		//입력 받는 값
 		String command = "";
 		
@@ -22,14 +25,13 @@ public class Main {
 		//명령 카운트 수
 		int count = 0;
 		
-		//배열 사이즈
-		int size = 0;
-		
 		//가장 작은 값
 		int minVal = 0;
 		
 		//가장 작은 값의 인덱스
 		int minIndex = 0;
+		
+		
 		
 		
 		// insert
@@ -49,22 +51,33 @@ public class Main {
 				choice = Integer.parseInt(command);
 				
 				if (choice == 0) {
-					if (size == 0) {
-						System.out.println(size);
+					if (h.size == 0) {
+						System.out.println(0);
 					} else {
 						//가장 작은 값 출력
 						System.out.println(h.heap[0]);
+						h.heap[0] = h.heap[h.size - 1];
+						
 						//가장 작은 값 배열에서 제거
-						for (int j = 0; j < size; j++) {
-							h.heap[j] = h.heap[j+1];
+						
+						for (int j = 0; j < h.size - 3; j++) {
+							if (h.size - 3 >= j) {
+								if (h.heap[j] > h.heap[j * 2]) {
+									temp = h.heap[j];
+									h.heap[j] = h.heap[j * 2];
+									h.heap[j * 2] = temp;
+								}
+							}
 						}
-						size--;
+						h.size--;
 					}					
 				} else {
-					for (int j = 0; j < size; j++) {
-						
+					for (int j = 0; j < h.size; j++) {						
+						if (minVal >= h.heap[j]) {
+							
+						}
 					}
-					size++;
+					h.size++;
 				}
 			}
 		} catch (IOException e) {
